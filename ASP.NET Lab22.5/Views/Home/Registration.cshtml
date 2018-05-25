@@ -6,19 +6,16 @@
 
 <h2>Registration</h2>
 
-<table>
+
+
+@*<table>
     <tr>
         <th>UserName</th>
         <th>Color</th>
-        <select>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="pink">Pink</option>
-            <option value="yellow">Yellow</option>
-        </select>
         <th>Sport</th>
-
     </tr>
+
+
     @foreach (var r in ViewBag.RegisterList)
     {
         <tr>
@@ -27,14 +24,14 @@
             <td>@r</td>
         </tr>
     }
-</table>
+</table>*@
 
 @using (Html.BeginForm("Create", "Home"))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Car</h4>
+        <h4>Please Login</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -48,8 +45,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                <select name="Color">
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="pink">Pink</option>
+                    <option value="yellow">Yellow</option>
+                </select>
             </div>
         </div>
 
@@ -74,16 +75,15 @@
 <script>
     function CheckUserName() {
         var username = document.getElementById("UserName")[0].value;
-        if (username1.length < 6)
-        {
-        
+        if (username1.length < 6) {
+
         }
         //alert(year + " is outside the valid range");
         document.getElementById('UserNameWarning').innerHTML =
             "<b>" + username + "must be atleast 6 charactrs long</b>";
-            return false;
-        }
-        return true;
+        return false;
+    }
+    return true;
     }
 </script>
 

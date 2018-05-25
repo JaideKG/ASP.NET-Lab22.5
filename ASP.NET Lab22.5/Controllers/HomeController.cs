@@ -51,5 +51,15 @@ namespace ASP.NET_Lab22._5.Controllers
 				return View("Registration");
 			}
 		}
+		public ActionResult Register(string UserName = "",
+			string Color = "", string Sport = "")
+		{
+
+			ViewBag.UserName = UserName;
+			ViewBag.Color = Color;
+			ViewBag.Sport = Sport;
+			return View();
+		}
 	}
 }
+	

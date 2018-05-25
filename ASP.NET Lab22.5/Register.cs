@@ -11,6 +11,11 @@ namespace ASP.NET_Lab22._5
         private string color;
         private string sport;
 
+		public Register()
+		{
+
+		}
+
         public Register(string username, string color, string sport)
         //Leaving out for now.
         //public Car()
