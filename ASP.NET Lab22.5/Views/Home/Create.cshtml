@@ -7,13 +7,65 @@
 <h2>
     Welcome @ViewBag.UserName!
 </h2>
+@*@{
+        Register r = ViewBag.Register;
+    }
+
+    @r.Username<br />
+    @r.Color<br />
+    @r.Sport<br />*@
+
+
 @{
-    Register r = ViewBag.Register;
+
+    Register r = (Register)Session["Register"];
+
+    //r.Username = Register["UserName"];
+    //r.Color = Register["Color"];
+    //r.Sport = Register["Sport"];
+
 }
 
 @r.Username<br />
 @r.Color<br />
 @r.Sport<br />
+
+@if (r.Color.ToLower() == "pink")
+{
+    <style>
+        body {
+            background-color: pink
+        }
+    </style>
+}
+
+else if (r.Color.ToLower() == "blue")
+{
+    <style>
+        body {
+            background-color: blue
+        }
+    </style>
+}
+
+else if (r.Color.ToLower() == "yellow")
+{
+    <style>
+        body {
+            background-color: yellow
+        }
+    </style>
+}
+
+else
+{
+    <style>
+        body {
+            background-color: green
+        }
+    </style>
+}
+
 
 
 

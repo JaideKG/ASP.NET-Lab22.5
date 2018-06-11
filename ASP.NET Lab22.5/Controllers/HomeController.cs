@@ -15,7 +15,9 @@ namespace ASP.NET_Lab22._5.Controllers
 			registerList.Add(new Register("Patty", "Yellow", "Volleyball"));
 			registerList.Add(new Register("Tally", "Pink", "Soccer"));
 
-			ViewBag.RegisterList = registerList;
+			//ViewBag.RegisterList = registerList;
+			Session["RegisterList"] = registerList;
+
 
 			return View();
 		}
@@ -43,7 +45,8 @@ namespace ASP.NET_Lab22._5.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				ViewBag.Register = r;
+				//ViewBag.Register = r;
+				Session["Register"] = r;
 				return View();
 			}
 			else
@@ -54,10 +57,16 @@ namespace ASP.NET_Lab22._5.Controllers
 		public ActionResult Register(string UserName = "",
 			string Color = "", string Sport = "")
 		{
+			Dictionary<string, string> Register = new Dictionary<string, string>();
 
-			ViewBag.UserName = UserName;
-			ViewBag.Color = Color;
-			ViewBag.Sport = Sport;
+			Register.Add("UserName", UserName);
+			Register.Add("Color", Color);
+			Register.Add("Sport", Sport);
+			Session["Register"] = Register;
+			
+			//ViewBag.UserName = UserName;
+			//ViewBag.Color = Color;
+			//ViewBag.Sport = Sport;
 			return View();
 		}
 	}
