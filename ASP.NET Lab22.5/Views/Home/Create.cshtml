@@ -1,22 +1,4 @@
-﻿
-
-@{
-    ViewBag.Title = "Welcome ";
-}
-
-<h2>
-    Welcome @ViewBag.UserName!
-</h2>
-@*@{
-        Register r = ViewBag.Register;
-    }
-
-    @r.Username<br />
-    @r.Color<br />
-    @r.Sport<br />*@
-
-
-@{
+﻿@{
 
     Register r = (Register)Session["Register"];
 
@@ -26,9 +8,26 @@
 
 }
 
+@{
+    ViewBag.Title = "Welcome ";
+}
+
+<h2>
+    Welcome @r.Username
+</h2>
+@*@{
+        Register r = ViewBag.Register;
+    }
+
+    @r.Username<br />
+    @r.Color<br />
+    @r.Sport<br />*@
+
 @r.Username<br />
 @r.Color<br />
 @r.Sport<br />
+
+
 
 @if (r.Color.ToLower() == "pink")
 {
